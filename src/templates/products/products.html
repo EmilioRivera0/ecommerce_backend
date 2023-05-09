@@ -1,0 +1,47 @@
+{% extends '../base.html' %}
+
+{% block title %}
+Products
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center">Products</h1>
+</div>
+<div class="container">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th>Brand</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for it in products %}
+  <tr>
+    <td>{{it.name}}</td>
+    <td>{{it.price}}</td>
+    <td>{{it.stock}}</td>
+    <td>{{it.brand}}</td>
+    <td><a href="{% url 'update_product' it.id %}"><button>Update</button></a></td>
+    <td><a href="{% url 'delete_product' it.id %}"><button>Delete</button></a></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<div class="container">
+<h3 class="text-center">Submit new Product</h3>
+<div class="container">
+  <form action="{% url 'products' %}" method="post" class="text-center">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit">
+</form>
+</div>
+</div>
+{% endblock %}

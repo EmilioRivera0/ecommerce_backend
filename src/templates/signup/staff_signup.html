@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="text-center">Staff Signup</h1>
+<div class="container text-center">
+  <form action="{% url 'staff_signup' %}" method="post" class="text-center">
+  {% csrf_token %}
+  <div class="container">
+    <h5>{{ form.email.label_tag}}</h5>  
+    {{ form.email }}
+    <h5>{{ form.username.label_tag }}</h5>
+    {{ form.username }}
+    <h5>{{ form.password.label_tag }}</h5>
+    {{ form.password }}
+    <h5>{{ form.password_check.label_tag }}</h5>
+    {{ form.password_check }}
+  </div>
+  <div class="container">
+    <input type="submit" value="Signup">
+  </div>
+</form>  
+</div>
+</div>
+{% endblock %}

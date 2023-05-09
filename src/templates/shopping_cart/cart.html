@@ -1,0 +1,38 @@
+
+{% extends '../base.html' %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center">Shopping Cart</h1>
+</div>
+<div class="container">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for it in products %}
+  <tr>
+    <td>{{it.name}}</td>
+    <td>{{it.brand}}</td>
+    <td>{{it.price}}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td></td>
+    <td>Total</td>
+    <td>{{total_price}}</td>
+  </tr>
+  </tbody>
+</table>
+<a href="{% url 'buy' %}">Buy</a>
+</div>
+{% endblock %}
