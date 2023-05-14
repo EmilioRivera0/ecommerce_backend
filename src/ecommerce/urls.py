@@ -23,6 +23,7 @@ from dashboard.views import Dashboard
 from shopping_cart.views import Add_To_Cart, View_Cart, Buy_Products
 from signup.views import User_Signup, Staff_Signup
 from logout.views import Logout
+from shopping_history.views import View_History
 
 urlpatterns = [
     path('admin/', admin.site.urls, name = 'admin'),
@@ -37,6 +38,7 @@ urlpatterns = [
     path('shopping_cart/', View_Cart, name = 'cart'),
     path('add/shopping_cart/<int:product_id>', Add_To_Cart, name = 'add_to_cart'),
     path('buy_products/', Buy_Products, name = 'buy'),
+    path('shopping_history/', View_History, name = 'history'),
 
     path('products/', Products, name = 'products'),
     path('products/update/<int:product_id>/', UpdateProduct, name = 'update_product'),

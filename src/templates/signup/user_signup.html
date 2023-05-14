@@ -21,9 +21,14 @@ Signup
     {{ form.password_check }}
   </div>
   <div class="container">
-    <input type="submit" value="Signup">
+    <input class="btn btn-success btn-rounded" type="submit" value="Signup">
   </div>
 </form>  
+<div class="container">
+      <a href="{% url 'staff_signup' %}">
+        <button type="button" class="btn btn-info btn-rounded" data-mdb-ripple-color="#ffffff"> Staff Signup </button></a>
+      </a>
+    </div>
 </div>
 </div>
 {% endblock %}

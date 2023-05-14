@@ -1,23 +1,24 @@
 {% extends '../base.html' %}
 
 {% block title %}
-Products
+Product Management
 {% endblock %}
 
 {% block content %}
-<div class="container">
-<h1 class="text-center">Products</h1>
+<div class="container text-center">
+<h1 class="text-center">Products Management</h1>
 </div>
 <div class="container">
-<table class="table table-hover">
+<div class="table-responsive">
+<table class="table table-hover table-secondary border-dark">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Stock</th>
-    <th>Brand</th>
-    <th></th>
-    <th></th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Stock</th>
+    <th scope="col">Brand</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
   </tr>
   </thead>
   <tbody>
@@ -27,12 +28,13 @@ Products
     <td>{{it.price}}</td>
     <td>{{it.stock}}</td>
     <td>{{it.brand}}</td>
-    <td><a href="{% url 'update_product' it.id %}"><button>Update</button></a></td>
-    <td><a href="{% url 'delete_product' it.id %}"><button>Delete</button></a></td>
+    <td><a href="{% url 'update_product' it.id %}"><button class="btn btn-warning">Update</button></a></td>
+    <td><a href="{% url 'delete_product' it.id %}"><button class="btn btn-danger">Delete</button></a></td>
   </tr>
   {% endfor %}
   </tbody>
 </table>
+</div>
 </div>
 <div class="container">
 <h3 class="text-center">Submit new Product</h3>
@@ -40,7 +42,7 @@ Products
   <form action="{% url 'products' %}" method="post" class="text-center">
   {% csrf_token %}
   {{ form }}
-  <input type="submit" value="Submit">
+  <input class="btn btn-success" type="submit" value="Submit">
 </form>
 </div>
 </div>
