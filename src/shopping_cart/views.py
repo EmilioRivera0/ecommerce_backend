@@ -34,6 +34,9 @@ def View_Cart(request):
 def Buy_Products(request):
     cart = Cart.objects.get(user=request.user.id)
     for it in cart.products['products']:
+        temp_product = Product.objects.get(name=it[0])
+        temp_product.stock -= 1
+        temp_product.save()
         it.append(datetime.now().strftime("%d/%m/%Y, %H:%M:%S"))
     history = History.objects.get(user=request.user.id)
     history.history['history'].extend(cart.products['products'])
