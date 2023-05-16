@@ -33,7 +33,6 @@ def User_Signup(request):
 def Staff_Signup(request):
     if request.method == 'GET':
         form = Signup_Form()
-        print(Cart.objects.all())
 
     elif request.method == 'POST':
         form = Signup_Form(request.POST)
