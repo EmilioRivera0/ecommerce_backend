@@ -20,7 +20,7 @@ Basic Front-End
 
 ## Authors
 
-- [@EmilioRiveraMacias](https://github.com/EmilioRiveraMacias)
+- [@EmilioRivera0](https://github.com/EmilioRivera0)
 
 ## Deployment
 
